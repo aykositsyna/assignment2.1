@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace assignment2._1
 {
-    internal class IHealthyFood : IFood
+    internal interface IHealthyFood : IFood
     {
     }
 }

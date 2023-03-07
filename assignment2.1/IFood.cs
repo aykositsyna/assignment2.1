@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace assignment2._1
 {
-    internal class IFood : IThing
+    internal interface IFood : IThing
     {
-        public bool Proteins;
-        public bool Fats;
-        public bool Carbohydrates;
+        bool Proteins { get; set; }
+        bool Fats { get; set; }
+        bool Carbohydrates { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace assignment2._1
 {
-    internal class IThing
+    internal interface IThing
     {
-        public string Name;
+        string Name { get; set; }
     }
 }
