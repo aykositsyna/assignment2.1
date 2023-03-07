@@ -8,9 +8,16 @@ namespace assignment2._1
 {
     internal class DumplingsMeat : ISemiFinishedFood
     {
-        public DumplingsMeat()
+        public bool Proteins { get; set; }
+        public bool Fats { get; set; }
+        public bool Carbohydrates { get; set; }
+        public string Name { get; set; }
+
+        public DumplingsMeat() 
         {
             Proteins = true;
-        }  
+            Name = "Meat dumplings";
+        }
     }
+
 }
