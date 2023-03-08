@@ -11,6 +11,13 @@ namespace assignment2._1
     {
         public List<T> Foodstuffs;
 
+        private List<IThing> Things; 
+
+        public Cart(List<IThing> things)
+        {
+            this.Things = things;
+        }
+
 
         public void CartBalancing()
         {
