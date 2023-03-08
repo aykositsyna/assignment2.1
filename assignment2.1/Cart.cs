@@ -55,6 +55,11 @@ namespace assignment2._1
                 Console.WriteLine("Your car is well balanced :)");
             }
         }
+
+        private void TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
+        {
+
+        }
         
     }
 }
