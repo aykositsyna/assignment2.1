@@ -32,40 +32,68 @@ namespace assignment2._1
                 carbohydratesExist = foodstuff.Carbohydrates || carbohydratesExist;
             }
 
-            if (proteinExists)
+            if (!proteinExists)
             {
                 Console.WriteLine("Not enough protein :(");
             }
 
-            if (fatsExist)
+            if (!fatsExist)
             {
                 Console.WriteLine("Not enough fats :(");
             }
 
-            if (carbohydratesExist) 
+            if (!carbohydratesExist) 
             {
                 Console.WriteLine("Not enough carbohydrates :(");
             }
 
-            if (proteinExists && fatsExist && carbohydratesExist) 
+            if (!proteinExists && !fatsExist && !carbohydratesExist) 
             {
                 Console.WriteLine("Cart is unbalanced. Wanna balace it? (y/n)");
                 string answer = Console.ReadLine();
                 if (answer == "y")
                 {
-                    //start balancing
+                    TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
                 }
                 
             }
             else
             {
-                Console.WriteLine("Your car is well balanced :)");
+                Console.WriteLine("Your cart is well balanced :)");
             }
         }
 
         private void TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
         {
+            foreach (IThing thing in Things)
+            {
+                if (thing is T needThing)
+                {
+                    if (needThing.Fats == needProteins)
+                    {
+                        Foodstuffs.Add(needThing);
+                        needProteins = false;
+                    }
 
+                    if (needThing.Fats == needFats)
+                    {
+                        Foodstuffs.Add(needThing);
+                        needFats = false;
+                    }
+
+                    if (needThing.Carbohydrates == needCarbohydrates)
+                    {
+                        Foodstuffs.Add(needThing);
+                        needCarbohydrates = false;
+                    }
+
+                    if (!(needProteins || needFats || needCarbohydrates))
+                    {
+                        break;
+                    }
+
+                }
+            }
         }
         
     }
