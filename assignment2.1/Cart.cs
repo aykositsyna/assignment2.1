@@ -47,13 +47,21 @@ namespace assignment2._1
                 Console.WriteLine("Not enough carbohydrates :(");
             }
 
-            if (!proteinExists && !fatsExist && !carbohydratesExist) 
+            if (!proteinExists || !fatsExist || !carbohydratesExist) 
             {
                 Console.WriteLine("Cart is unbalanced. Wanna balace it? (y/n)");
                 string answer = Console.ReadLine();
                 if (answer == "y")
                 {
-                    TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
+                    bool isBalanced = TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
+                    if (isBalanced)
+                    {
+                        Console.WriteLine("Congratulations! Cart is now balanced :)");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Oh no, balancing failed :,(");
+                    }
                 }
                 
             }
@@ -63,25 +71,25 @@ namespace assignment2._1
             }
         }
 
-        private void TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
+        private bool TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
         {
             foreach (IThing thing in Things)
             {
                 if (thing is T needThing)
                 {
-                    if (needThing.Fats == needProteins)
+                    if (needProteins && needThing.Fats == needProteins)
                     {
                         Foodstuffs.Add(needThing);
                         needProteins = false;
                     }
 
-                    if (needThing.Fats == needFats)
+                    if (needFats && needThing.Fats == needFats)
                     {
                         Foodstuffs.Add(needThing);
                         needFats = false;
                     }
 
-                    if (needThing.Carbohydrates == needCarbohydrates)
+                    if (needCarbohydrates && needThing.Carbohydrates == needCarbohydrates)
                     {
                         Foodstuffs.Add(needThing);
                         needCarbohydrates = false;
@@ -89,11 +97,13 @@ namespace assignment2._1
 
                     if (!(needProteins || needFats || needCarbohydrates))
                     {
-                        break;
+                        return true;
                     }
 
                 }
             }
+
+            return false;
         }
         
     }
