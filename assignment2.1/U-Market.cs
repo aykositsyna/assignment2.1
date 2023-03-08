@@ -30,5 +30,20 @@ namespace assignment2._1
                 new Notebook()
             };
         }
+
+        public void PrintThings()
+        {
+            Console.WriteLine("All items:");
+
+            foreach (IThing thing in Things)
+            {
+                Console.WriteLine(thing.Name);
+            }
+        }
+
+        public void GetCart<T>(ref Cart<T> cart) where T : IFood
+        {
+            cart = new Cart<T>(this.Things);
+        }
     }
 }
