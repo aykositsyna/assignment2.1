@@ -13,17 +13,19 @@ namespace assignment2._1
        {
             U_Market shop = new U_Market();
             shop.PrintThings();
-
+            Console.WriteLine();
             shop.FoodCart.Foodstuffs.Add(new Crisps());
             shop.FoodCart.Foodstuffs.Add(new Crisps());
             shop.FoodCart.Foodstuffs.Add(new Crisps());
             shop.FoodCart.PrintCart();
+            Console.WriteLine();
 
             shop.FoodCart.CartBalancing();
+            Console.WriteLine();
 
             shop.FoodCart.PrintCart();
 
-            
+
 
 
         }

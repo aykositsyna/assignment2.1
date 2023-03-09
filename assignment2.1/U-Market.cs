@@ -14,7 +14,6 @@ namespace assignment2._1
 
         public U_Market()
         {
-            FoodCart = new Cart<ISnacks>(this.Things);
             Things = new List<IThing>()
             {
                 new Cheburek(),
@@ -29,6 +28,7 @@ namespace assignment2._1
                 new Pen(),
                 new Notebook()
             };
+            FoodCart = new Cart<ISnacks>(Things);
         }
 
         public void PrintThings()

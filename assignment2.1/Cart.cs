@@ -16,6 +16,8 @@ namespace assignment2._1
         public Cart(List<IThing> things)
         {
             this.Things = things;
+            //Console.WriteLine(this.Things == null);
+            Foodstuffs = new List<T>();
         }
 
 
@@ -31,7 +33,7 @@ namespace assignment2._1
                 fatsExist = foodstuff.Fats || fatsExist;
                 carbohydratesExist = foodstuff.Carbohydrates || carbohydratesExist;
             }
-
+            
             if (!proteinExists)
             {
                 Console.WriteLine("Not enough protein :(");
@@ -49,18 +51,19 @@ namespace assignment2._1
 
             if (!proteinExists || !fatsExist || !carbohydratesExist) 
             {
-                Console.WriteLine("Cart is unbalanced. Wanna balace it? (y/n)");
+                Console.Write("Cart is unbalanced. Wanna balace it? (y/n)  ");
                 string answer = Console.ReadLine();
+                Console.WriteLine("-----------------------------");
                 if (answer == "y")
                 {
                     bool isBalanced = TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
                     if (isBalanced)
                     {
-                        Console.WriteLine("Congratulations! Cart is now balanced :)");
+                        Console.WriteLine("Congratulations! Cart is now balanced :)\n");
                     }
                     else
                     {
-                        Console.WriteLine("Oh no, balancing failed :,(");
+                        Console.WriteLine("Oh no, balancing failed :,(\n");
                     }
                 }
                 
@@ -73,11 +76,12 @@ namespace assignment2._1
 
         private bool TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
         {
-            foreach (IThing thing in Things)
+            
+            foreach (IThing thing in this.Things)
             {
                 if (thing is T needThing)
                 {
-                    if (needProteins && needThing.Fats == needProteins)
+                    if (needProteins && needThing.Proteins == needProteins)
                     {
                         Foodstuffs.Add(needThing);
                         needProteins = false;
