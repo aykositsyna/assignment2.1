@@ -8,15 +8,9 @@ namespace assignment2._1
 {
     internal class Crisps : ISnacks
     {
-        public bool Proteins { get; set; }
-        public bool Fats { get; set; }
-        public bool Carbohydrates { get; set; }
-        public string Name { get; set; }
-
-        public Crisps()
-        {
-            Fats = true;
-            Name = "Crisps";
-        }
+        public bool Proteins => false;
+        public bool Fats => true;
+        public bool Carbohydrates => false;
+        public string Name => "Crisps";
     }
 }

@@ -9,7 +9,7 @@ namespace assignment2._1
     internal class Cart<T>
         where T : IFood
     {
-        public List<T> Foodstuffs;
+        public List<T> Foodstuffs { get; }
 
         private List<IThing> Things; 
 
@@ -104,6 +104,14 @@ namespace assignment2._1
             }
 
             return false;
+        }
+
+        public void PrintCart()
+        {
+            foreach (T thing in Foodstuffs) 
+            {
+                Console.WriteLine(thing.Name);
+            }
         }
         
     }

@@ -8,15 +8,9 @@ namespace assignment2._1
 {
     internal class Chicken : IHealthyFood
     {
-        public bool Proteins { get; set; }
-        public bool Fats { get; set; }
-        public bool Carbohydrates { get; set; }
-        public string Name { get; set; }
-
-        public Chicken()
-        {
-            Proteins = true;
-            Name = "Chicken";
-        }
+        public bool Proteins => true;
+        public bool Fats => false;
+        public bool Carbohydrates => false;
+        public string Name => "Chicken";
     }
 }

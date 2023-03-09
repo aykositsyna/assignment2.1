@@ -8,6 +8,6 @@ namespace assignment2._1
 {
     internal interface IThing
     {
-        string Name { get; set; }
+        string Name { get; }
     }
 }

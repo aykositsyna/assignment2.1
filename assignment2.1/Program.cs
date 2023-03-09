@@ -14,28 +14,17 @@ namespace assignment2._1
             U_Market shop = new U_Market();
             shop.PrintThings();
 
-            Console.WriteLine("Choose category:\n1 - All food items\n2 - Snacks\n3 - Healthy products\n4 - Semifinished food\n");
+            shop.FoodCart.Foodstuffs.Add(new Crisps());
+            shop.FoodCart.Foodstuffs.Add(new Crisps());
+            shop.FoodCart.Foodstuffs.Add(new Crisps());
+            shop.FoodCart.PrintCart();
 
-            string choice = Console.ReadLine();
+            shop.FoodCart.CartBalancing();
 
-            Cart<IFood> newCart;
+            shop.FoodCart.PrintCart();
 
-            switch (choice)
-            {
-                case "2":
-                    Cart<ISnacks> newCartSn;
-                    shop.GetCart<ISnacks>(out newCartSn);
-                    shop.FoodCart = newCartSn;
-                    break;
-                case "3":
-                    Cart<IHealthyFood> newCartHf;
-                    shop.GetCart<IHealthyFood>(out newCartHf);
-                    break;
-                case "4":
-                    Cart<ISemiFinishedFood> newCartSf;
-                    shop.GetCart<ISemiFinishedFood>(out newCartSf);
-                    break;
-            }
+            
+
 
         }
         

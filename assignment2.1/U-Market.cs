@@ -10,11 +10,11 @@ namespace assignment2._1
     {
         public List<IThing> Things { get; set; }
 
-        public Cart<IFood> FoodCart { get; set; }
+        public Cart<ISnacks> FoodCart { get; set; }
 
         public U_Market()
         {
-            FoodCart = new Cart<IFood>(this.Things);
+            FoodCart = new Cart<ISnacks>(this.Things);
             Things = new List<IThing>()
             {
                 new Cheburek(),
@@ -46,9 +46,6 @@ namespace assignment2._1
             cart = new Cart<T>(this.Things);
         }
 
-        public void PrintSnacks()
-        {
-            foreach
-        }
+   
     }
 }

@@ -8,15 +8,9 @@ namespace assignment2._1
 {
     internal class Cheburek : ISemiFinishedFood
     {
-        public bool Proteins { get; set; }
-        public bool Fats { get; set; }
-        public bool Carbohydrates { get; set; }
-        public string Name { get; set; }
-
-        public Cheburek()
-        {
-            Fats = true;
-            Name = "Cheburek";
-        }
+        public bool Proteins => false;
+        public bool Fats => true;
+        public bool Carbohydrates => false;
+        public string Name => "Cheburek";
     }
 }

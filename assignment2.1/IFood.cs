@@ -8,8 +8,8 @@ namespace assignment2._1
 {
     internal interface IFood : IThing
     {
-        bool Proteins { get; set; }
-        bool Fats { get; set; }
-        bool Carbohydrates { get; set; }
+        bool Proteins { get; }
+        bool Fats { get; }
+        bool Carbohydrates { get; }
     }
 }

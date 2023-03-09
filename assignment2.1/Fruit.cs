@@ -8,15 +8,9 @@ namespace assignment2._1
 {
     internal class Fruit : IHealthyFood
     {
-        public bool Proteins { get; set; }
-        public bool Fats { get; set; }
-        public bool Carbohydrates { get; set; }
-        public string Name { get; set; }
-
-        public Fruit() 
-        {
-            Carbohydrates = true;
-            Name = "Fruit";
-        }
+        public bool Proteins => false;
+        public bool Fats => false;
+        public bool Carbohydrates => true;
+        public string Name => "Fruit";
     }
 }
