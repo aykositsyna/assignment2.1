@@ -18,14 +18,23 @@ namespace assignment2._1
 
             string choice = Console.ReadLine();
 
+            Cart<IFood> newCart;
+
             switch (choice)
             {
                 case "2":
-                    shop.GetCart<ISnacks>(ref shop.FoodCart);
+                    Cart<ISnacks> newCartSn;
+                    shop.GetCart<ISnacks>(out newCartSn);
+                    shop.FoodCart = newCartSn;
+                    break;
                 case "3":
-                    shop.GetCart<IHealthyFood>(ref shop.FoodCart);
+                    Cart<IHealthyFood> newCartHf;
+                    shop.GetCart<IHealthyFood>(out newCartHf);
+                    break;
                 case "4":
-                    shop.GetCart<ISemiFinishedFood>(ref shop.FoodCart);
+                    Cart<ISemiFinishedFood> newCartSf;
+                    shop.GetCart<ISemiFinishedFood>(out newCartSf);
+                    break;
             }
 
         }

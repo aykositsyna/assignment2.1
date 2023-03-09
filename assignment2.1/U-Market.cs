@@ -41,9 +41,14 @@ namespace assignment2._1
             }
         }
 
-        public void GetCart<T>(ref Cart<T> cart) where T : IFood
+        public void GetCart<T>(out Cart<T> cart) where T : IFood
         {
             cart = new Cart<T>(this.Things);
+        }
+
+        public void PrintSnacks()
+        {
+            foreach
         }
     }
 }
