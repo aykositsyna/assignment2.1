@@ -31,14 +31,16 @@ namespace assignment2._1
             FoodCart = new Cart<ISnacks>(Things);
         }
 
-        public void PrintThings()
+        public string PrintThings()
         {
-            Console.WriteLine("All items:");
+            string allitems = string.Empty;
+           allitems += "All items:\n";
 
             foreach (IThing thing in Things)
             {
-                Console.WriteLine(thing.Name);
+                allitems += (thing.Name) + "\n";
             }
+            return allitems;
         }
 
         public void GetCart<T>(out Cart<T> cart) where T : IFood

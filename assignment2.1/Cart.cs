@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace assignment2._1
 {
-    internal class Cart<T>
-        where T : IFood
+    internal class Cart<T> where T : IFood
     {
         public List<T> Foodstuffs { get; }
 
@@ -16,7 +15,6 @@ namespace assignment2._1
         public Cart(List<IThing> things)
         {
             this.Things = things;
-            //Console.WriteLine(this.Things == null);
             Foodstuffs = new List<T>();
         }
 
@@ -33,45 +31,11 @@ namespace assignment2._1
                 fatsExist = foodstuff.Fats || fatsExist;
                 carbohydratesExist = foodstuff.Carbohydrates || carbohydratesExist;
             }
-            
-            if (!proteinExists)
-            {
-                Console.WriteLine("Not enough protein :(");
-            }
 
-            if (!fatsExist)
+            if (!proteinExists || !fatsExist || !carbohydratesExist)
             {
-                Console.WriteLine("Not enough fats :(");
-            }
-
-            if (!carbohydratesExist) 
-            {
-                Console.WriteLine("Not enough carbohydrates :(");
-            }
-
-            if (!proteinExists || !fatsExist || !carbohydratesExist) 
-            {
-                Console.Write("Cart is unbalanced. Wanna balace it? (y/n)  ");
-                string answer = Console.ReadLine();
-                Console.WriteLine("-----------------------------");
-                if (answer == "y")
-                {
-                    bool isBalanced = TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
-                    if (isBalanced)
-                    {
-                        Console.WriteLine("Congratulations! Cart is now balanced :)\n");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Oh no, balancing failed :,(\n");
-                    }
-                }
-                
-            }
-            else
-            {
-                Console.WriteLine("Your cart is well balanced :)");
-            }
+                TryToBalance(!proteinExists, !fatsExist, !carbohydratesExist);
+            }   
         }
 
         private bool TryToBalance(bool needProteins, bool needFats, bool needCarbohydrates)
@@ -110,13 +74,15 @@ namespace assignment2._1
             return false;
         }
 
-        public void PrintCart()
+        public string PrintCart()
         {
-            foreach (T thing in Foodstuffs) 
+            string result = string.Empty;
+            foreach (T thing in Foodstuffs)
             {
-                Console.WriteLine(thing.Name);
+                result += (thing.Name) + "\n";
             }
+            return result;
         }
-        
+
     }
 }
