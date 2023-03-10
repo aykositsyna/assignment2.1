@@ -8,7 +8,7 @@ namespace assignment2._1
 {
     internal class BalykCheese : ISnacks
     {
-        public bool Proteins => false;
+        public bool Proteins => true;
         public bool Fats => false;
         public bool Carbohydrates => false;
         public string Name => "Cheese balyk";
